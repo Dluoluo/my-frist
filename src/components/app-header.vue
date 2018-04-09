@@ -1,10 +1,8 @@
 <template>
     <div class="app-header">
         <div class="content">
-            <router-link :to="{path:'/'}">
-                <a href="####" class="logo">
-                    <img src="../assets/logo.png">
-                </a>
+            <router-link :to="{path:'/'}" tag="span" class="logo">
+                <img src="../assets/logo.png">
             </router-link>
             <ul class="list">
                 <li><a href="####" @click="isShow('landed')">登陆</a></li>
@@ -19,14 +17,14 @@
 
 <script>
 export default {
-    methods:{
-        isShow(name){
-            this.$root.Bus.$emit('show',{
-                showPanel:true,
-                name: name
-            })
-        }
+  methods: {
+    isShow(name) {
+      this.$root.Bus.$emit("show", {
+        showPanel: true,
+        name: name
+      });
     }
+  }
 };
 </script>
 
@@ -44,6 +42,7 @@ export default {
   display: block;
   margin-top: 22px;
   float: left;
+  cursor: pointer;
 }
 .logo img {
   width: 50px;

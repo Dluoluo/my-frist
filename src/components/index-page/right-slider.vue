@@ -2,14 +2,14 @@
     <div @mouseover="clearInv()" @mouseout="setInv()">
         <ul class="img">
             <li v-for="itme in list">
-              <a href="####">
+              <router-link :to="list[listIndex].url" tag="a">
                 <transition :name="listOld">
                   <img :src="list[listIndex].src" v-if="isShow">
                 </transition>
                 <transition :name="listShow">
                   <img :src="list[listIndex].src" v-if="!isShow" >
                 </transition>
-              </a>
+              </router-link>
             </li>
         </ul>
         <h2>{{list[listIndex].title}}</h2>
@@ -29,22 +29,22 @@ export default {
         {
           src: require("../../assets/slideShow/pic1.jpg"),
           title: "xxx1",
-          url: ""
+          url: "/detail/count"
         },
         {
           src: require("../../assets/slideShow/pic2.jpg"),
           title: "xxx2",
-          url: ""
+          url: "/detail/forecast"
         },
         {
           src: require("../../assets/slideShow/pic3.jpg"),
           title: "xxx3",
-          url: ""
+          url: "/detail/analysis"
         },
         {
           src: require("../../assets/slideShow/pic4.jpg"),
           title: "xxx4",
-          url: ""
+          url: "/detail/publish"
         }
       ],
       listIndex: 0,

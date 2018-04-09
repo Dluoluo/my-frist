@@ -1,31 +1,31 @@
 
 <template>
-    <div class="app-content">
-        <div class="content">
-            <div class="left">
-               <div class="product">
-                   <h2>全部产品</h2>
-                   <left-list v-for="(itme,index) in leftListData" :leftListDatas="itme"></left-list>
-               </div>
-               <div class="news">
-                   <h2>最新消息</h2>
-                   <ul>
-                       <li v-for="itme in newsData"><a href="####">{{itme}}</a></li>
-                   </ul>
-               </div>
+  <div class="index-content">
+    <div class="content">
+        <div class="left">
+            <div class="product">
+                <h2>全部产品</h2>
+                <left-list v-for="(itme,index) in leftListData" :leftListDatas="itme"></left-list>
             </div>
-            <div class="right">
-                <right-slider></right-slider>
-                <right-list v-for="(itme,index) in rightListData" :rightListDatas="itme" :rightListIndex="index"></right-list>
+            <div class="news">
+                <h2>最新消息</h2>
+                <ul>
+                    <li v-for="itme in newsData"><a href="####">{{itme}}</a></li>
+                </ul>
             </div>
         </div>
+        <div class="right">
+            <right-slider></right-slider>
+            <right-list v-for="(itme,index) in rightListData" :rightListDatas="itme" :rightListIndex="index"></right-list>
+        </div>
     </div>
+  </div>
 </template>
 
 <script>
-import leftList from "./page1/left-list";
-import rightSlider from './page1/right-slider'
-import rightList from "./page1/right-list";
+import leftList from "./left-list";
+import rightSlider from "./right-slider";
+import rightList from "./right-list";
 export default {
   data() {
     return {
@@ -86,31 +86,36 @@ export default {
       },
       rightListData: [
         {
-          url: require("../assets/images/1.png"),
+          imgSrc: require("../../assets/images/1.png"),
           title: "开放产品",
           description: "开放产品是一款开放产品",
-          but: "立即购买"
+          but: "立即购买",
+          url:'/detail/count'
+
         },
         {
-          url: require("../assets/images/2.png"),
+          imgSrc: require("../../assets/images/2.png"),
           title: "品牌营销",
           description: "品牌营销帮助你的产品更好地找到定位",
-          but: "立即购买"
+          but: "立即购买",
+          url:'/detail/forecast'
         },
         {
-          url: require("../assets/images/3.png"),
+          imgSrc: require("../../assets/images/3.png"),
           title: "使命必达",
           description: "使命必达快速迭代永远保持最前端的速度",
-          but: "立即购买"
+          but: "立即购买",
+          url:'/detail/analysis'
         },
         {
-          url: require("../assets/images/4.png"),
+          imgSrc: require("../../assets/images/4.png"),
           title: "勇攀高峰",
           description: "帮你勇闯高峰，到达事业的顶峰",
-          but: "立即购买"
+          but: "立即购买",
+          url:'/detail/publish'
         }
       ]
-    }
+    };
   },
   components: {
     leftList,
@@ -121,7 +126,7 @@ export default {
 </script>
 
 <style scoped>
-.app-content {
+.index-content {
   background: #f0f2f5;
 }
 .content {

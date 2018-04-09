@@ -2,12 +2,12 @@
 <template>
     <div class="right-list" :class="{'right-margin':rightListIndex%2==0}">
         <div class="img">
-            <img :src="rightListDatas.url">
+            <img :src="rightListDatas.imgSrc">
         </div>
         <div class="right">
             <h2>{{rightListDatas.title}}</h2>
             <p>{{rightListDatas.description}}</p>
-            <input type="button" :value="rightListDatas.but">
+            <router-link tag="span" :to="rightListDatas.url">{{rightListDatas.but}}</router-link>
         </div>
     </div>
 </template>
@@ -52,16 +52,15 @@
     line-height: 35px;
     margin-bottom: 10px;
 }
-.right input{
+.right span{
+    display: inline-block;
     width: 100px;
     height: 35px;
+    line-height: 35px;
+    text-align: center;
     background: #4fc08d;
     color: #ffffff;
-    border:none;
     cursor: pointer;
-}
-.right input:focus{
-    outline:none;
 }
 .right-margin{
     margin-right: 20px;

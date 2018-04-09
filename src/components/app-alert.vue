@@ -6,13 +6,13 @@
           <div class="landed" slot="landed">
             <div class="username">
               <label>用户名：</label>
-              <input type="text" placeholder="请输入用户名">
-              <span></span>
+              <input type="text" placeholder="请输入用户名" v-model="userName" v-focus>
+              <span>{{userErrors.errorText}}</span>
             </div>
             <div class="password">
               <label>密&emsp;码：</label>
-              <input type="password" placeholder="请输入密码">
-              <span></span>
+              <input type="password" placeholder="请输入密码" v-model="passWord">
+              <span>{{passErrors.errorText}}</span>
             </div>
             <div class="btn">
               <input type="button" value="登陆">
@@ -32,27 +32,68 @@
 </template>
 
 <script>
-import alertContent from './alert-content'
+import alertContent from "./alert-content"
+
 export default {
-  components:{
+  components: {
     alertContent
   },
   data() {
     return {
+      userName: null,
+      passWord: null,
       alertShow: false
     };
   },
   methods: {
     showHandle(payload) {
-      this.alertShow=payload.showPanel;
+      this.alertShow = payload.showPanel;
     },
-    close(){
-      this.alertShow=false;
-      this.$root.Bus.$emit('alertClose')
+    close() {
+      this.alertShow = false;
+      this.$root.Bus.$emit("alertClose",false);
+    }
+  },
+  computed:{
+    userErrors(){
+      let errorText,status
+      if(!/@/g.test(this.userName)&&this.userName){
+        status=false
+        errorText='您输入的不包含@符号'
+      }else{
+        status=true
+        errorText=''
+      }
+      return{
+      status,
+      errorText
+      }
+    },
+    passErrors(){
+      let errorText,status
+      if(!/^\w{1,6}$/g.test(this.passWord)&&this.passWord){
+        status:false
+        errorText="您输入的密码不是1-6位"
+      }
+      else{
+        status:true
+        errorText=''
+      }
+      return{
+        status,
+        errorText
+      }
     }
   },
   created() {
     this.$root.Bus.$on("show", this.showHandle);
+  },
+  directives: {
+    focus: {
+      inserted: function(el) {
+        el.focus();
+      }
+    }
   }
 };
 </script>
@@ -101,6 +142,11 @@ export default {
   box-sizing: border-box;
   padding: 0 10px;
 }
+.landed span{
+  color: red;
+  font-size: 14px;
+  margin-left: 10px;
+}
 .landed .btn input,
 .login .btn input {
   margin-left: 113px;
@@ -118,13 +164,16 @@ export default {
   font-size: 14px;
   line-height: 20px;
 }
-.transalert-enter-active,.transalert-leave-active{
+.transalert-enter-active,
+.transalert-leave-active {
   transition: all 0.3s;
 }
-.transalert-enter,.transalert-leave-to{
+.transalert-enter,
+.transalert-leave-to {
   transform: translateY(-300px);
 }
-.transalert-enter-to,.transalert-leave{
+.transalert-enter-to,
+.transalert-leave {
   transform: translateY(130px);
 }
 </style>

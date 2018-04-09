@@ -6,19 +6,19 @@
 
 <script>
 export default {
-    data(){
-        return{
-            showName:''
-        }
-    },
-    methods:{
-        isShow(payload){
-            this.showName=payload.name;
-        }
-    },
-    created(){
-        this.$root.Bus.$on('show',this.isShow)
+  data() {
+    return {
+      showName: ""
+    };
+  },
+  methods: {
+    isShow(payload) {
+      this.showName = payload.name;
     }
+  },
+  created() {
+    this.$root.Bus.$on("show", this.isShow);
+  }
 };
 </script>
 
