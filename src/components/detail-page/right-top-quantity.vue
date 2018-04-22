@@ -1,6 +1,6 @@
 <template>
     <div class="right-top-quantity">
-        <input type="button" value="-" class="jian" @click="count(-1)"><input type="text" class="number" v-model.number="number"><input type="button" value="+" class="jia" @click="count(+1)">
+        <input type="button" value="-" class="jian" @click="count(-1)"><input type="text" class="number" v-model.number="number" @keyup="numberChange"><input type="button" value="+" class="jia" @click="count(+1)">
     </div>
 </template>
 
@@ -18,10 +18,18 @@
                     this.number=0
                 }
                 this.$emit('calculation',this.number)
+            },
+            numberChange(){
+                if(this.number>999){
+                    this.number=999;
+                    alert('不好意思，您输入的数量不得大于999！') 
+                }
+                if(this.number===''){
+                    this.number=0;
+                    alert('不好意思，您输入的数量最小为0')
+                }
+                this.$emit('calculation',this.number)
             }
-        },
-        computed:{
-            
         }
     }
 </script>
