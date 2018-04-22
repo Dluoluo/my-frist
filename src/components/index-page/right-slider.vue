@@ -27,22 +27,22 @@ export default {
     return {
       list: [
         {
-          src: require("../../assets/slideShow/pic1.jpg"),
+          src: require("../../assets/pic1.jpg"),
           title: "xxx1",
           url: "/detail/count"
         },
         {
-          src: require("../../assets/slideShow/pic2.jpg"),
+          src: require("../../assets/pic2.jpg"),
           title: "xxx2",
           url: "/detail/forecast"
         },
         {
-          src: require("../../assets/slideShow/pic3.jpg"),
+          src: require("../../assets/pic3.jpg"),
           title: "xxx3",
           url: "/detail/analysis"
         },
         {
-          src: require("../../assets/slideShow/pic4.jpg"),
+          src: require("../../assets/pic4.jpg"),
           title: "xxx4",
           url: "/detail/publish"
         }

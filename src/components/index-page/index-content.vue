@@ -86,7 +86,7 @@ export default {
       },
       rightListData: [
         {
-          imgSrc: require("../../assets/images/1.png"),
+          imgSrc: require("../../assets/1.png"),
           title: "开放产品",
           description: "开放产品是一款开放产品",
           but: "立即购买",
@@ -94,21 +94,21 @@ export default {
 
         },
         {
-          imgSrc: require("../../assets/images/2.png"),
+          imgSrc: require("../../assets/2.png"),
           title: "品牌营销",
           description: "品牌营销帮助你的产品更好地找到定位",
           but: "立即购买",
           url:'/detail/forecast'
         },
         {
-          imgSrc: require("../../assets/images/3.png"),
+          imgSrc: require("../../assets/3.png"),
           title: "使命必达",
           description: "使命必达快速迭代永远保持最前端的速度",
           but: "立即购买",
           url:'/detail/analysis'
         },
         {
-          imgSrc: require("../../assets/images/4.png"),
+          imgSrc: require("../../assets/4.png"),
           title: "勇攀高峰",
           description: "帮你勇闯高峰，到达事业的顶峰",
           but: "立即购买",

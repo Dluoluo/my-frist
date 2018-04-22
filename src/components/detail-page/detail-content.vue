@@ -47,10 +47,10 @@
                     }
                 ],
                 imgSrc:{
-                    '/detail/count':require('../../assets/images/1.png'),
-                    '/detail/forecast':require('../../assets/images/2.png'),
-                    '/detail/analysis':require('../../assets/images/3.png'),
-                    '/detail/publish':require('../../assets/images/4.png')
+                    '/detail/count':require('../../assets/1.png'),
+                    '/detail/forecast':require('../../assets/2.png'),
+                    '/detail/analysis':require('../../assets/3.png'),
+                    '/detail/publish':require('../../assets/4.png')
                 }
             }
         }
